@@ -44,10 +44,6 @@ public class RC4 {
         return ciphertext;
     }
 
-    public byte[] decrypt(final byte[] ciphertext) {
-        return encrypt(ciphertext);
-    }
-
     public void fileEncrypt(String inputFile, String outputFile) {
         byte[] pt = new byte[8];
         byte[] ct;
