@@ -10,8 +10,7 @@ public class RC4 {
 
     public RC4(final byte[] key) {
         if (key.length < 1 || key.length > 256) {
-            throw new IllegalArgumentException(
-                    "key must be between 1 and 256 bytes");
+            throw new IllegalArgumentException("key must be between 1 and 256 bytes");
         } else {
             keylen = key.length;
             for (int i = 0; i < 256; i++) {
@@ -60,6 +59,21 @@ public class RC4 {
             fos.flush();
         } catch (Exception e) {
             System.out.println("Error!\n" + e.getMessage());
+        }
+    }
+
+    public void getFile(){
+        byte[] pt = new byte[16];
+        for (int i = 0; i < 16; i++){
+            pt[i] = 0;
+        }
+        pt = encrypt(pt);
+        try {
+            FileOutputStream fos = new FileOutputStream("C:\\Users\\Tuhlomon\\Desktop\\crypto\\crypto3_ist.txt");
+            fos.write(pt);
+        }
+        catch (Exception e){
+            System.out.println("FILE OUTPUT STREAM ERROR!");
         }
     }
 }
